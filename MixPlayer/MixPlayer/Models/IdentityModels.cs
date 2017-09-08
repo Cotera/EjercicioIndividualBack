@@ -29,5 +29,7 @@ namespace MixPlayer.Models
         {
             return new ApplicationDbContext();
         }
-    }
+
+		public System.Data.Entity.DbSet<MixPlayer.Entities.Archivo> Archivoes { get; set; }
+	}
 }
