@@ -6,12 +6,12 @@ using System.Web;
 
 namespace MixPlayer.Entities
 {
-	public enum Tipo
+	/*public enum Tipo
 	{
 		AUDIO,
 		VIDEO,
 		IMAGEN
-	}
+	}*/
 
 	public class Archivo
 	{
@@ -19,11 +19,11 @@ namespace MixPlayer.Entities
 		public long Id { get; set; }
 
 		public String Titulo { get; set; }
-		public String Autor { get; set; }
-		public Tipo Tipo;
+		//public Tipo Tipo;
+		public String Tipo;
 		public String Formato { get; set; }
 		public float TamanioMb { get; set; }
-		public DateTime Duracion { get; set; }
-
+		//public DateTime Duracion { get; set; }
+		public TimeSpan Duracion { get; set; }
 	}
 }

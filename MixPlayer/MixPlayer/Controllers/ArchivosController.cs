@@ -10,10 +10,12 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using MixPlayer.Entities;
 using MixPlayer.Models;
+using System.Web.Http.Cors;
 
 namespace MixPlayer.Controllers
 {
-    public class ArchivosController : ApiController
+	[EnableCors(origins: "*", headers: "*", methods: "*")]
+	public class ArchivosController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
