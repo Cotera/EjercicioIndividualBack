@@ -21,6 +21,8 @@ namespace MixPlayer
 
 			container.RegisterType<IArchivoRepository, ArchivoRepository>();
 			container.RegisterType<IArchivoService, ArchivoService>();
+			container.RegisterType<IPlayListRepository, PlayListRepository>();
+			container.RegisterType<IPlayListService, PlayListService>();
 		}
 	}
 }

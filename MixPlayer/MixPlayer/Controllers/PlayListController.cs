@@ -17,39 +17,39 @@ using GestorPlantillas;
 namespace MixPlayer.Controllers
 {
 	[EnableCors(origins: "*", headers: "*", methods: "*")]
-	public class ArchivoController : ApiController
+	public class PlayListController : ApiController
     {
-		private IArchivoService archivoService;
+		private IPlayListService playListService;
 
-		public ArchivoController (IArchivoService _archivoServ)
+		public PlayListController(IPlayListService _playListServ)
 		{
-			this.archivoService = _archivoServ;
+			this.playListService = _playListServ;
 		}
 
-		// POST: api/Archivo
-		[ResponseType(typeof(Archivo))]
-		public IHttpActionResult PostArchivo(Archivo archivo)
+		// POST: api/PlayList
+		[ResponseType(typeof(PlayList))]
+		public IHttpActionResult PostPlayList(PlayList playList)
 		{
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
 
-			this.archivoService.Create(archivo);
-			return CreatedAtRoute("DefaultApi", new { id = archivo.Id }, archivo);
+			this.playListService.Create(playList);
+			return CreatedAtRoute("DefaultApi", new { id = playList.Id }, playList);
 		}
 
-		// GET: api/Archivo
-		public IQueryable<Archivo> GetArchivoes()
+		// GET: api/PlayList
+		public IQueryable<PlayList> GetPlayListes()
         {
-            return archivoService.Read();
+            return playListService.Read();
         }
 
-        // GET: api/Archivo/5
-        [ResponseType(typeof(Archivo))]
-        public IHttpActionResult GetArchivo(long id)
+        // GET: api/PlayList/5
+        [ResponseType(typeof(PlayList))]
+        public IHttpActionResult GetPlayList(long id)
         {
-			Archivo resultado = this.archivoService.Read(id);
+			PlayList resultado = this.playListService.Read(id);
             if (resultado == null)
             {
                 return NotFound();
@@ -58,25 +58,25 @@ namespace MixPlayer.Controllers
             return Ok(resultado);
         }
 
-        // PUT: api/Archivo/5
+        // PUT: api/PlayList/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutArchivo(long id, Archivo archivo)
+        public IHttpActionResult PutPlayList(long id, PlayList playList)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != archivo.Id)
+            if (id != playList.Id)
             {
                 return BadRequest();
             }
 
             try {
-				this.archivoService.Update(archivo);
+				this.playListService.Update(playList);
             }
 			catch (DbUpdateConcurrencyException) {
-                if (this.GetArchivo(id) == null)
+                if (this.GetPlayList(id) == null)
                 {
                     return NotFound();
                 } else {
@@ -87,12 +87,12 @@ namespace MixPlayer.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // DELETE: api/Archivo/5
-        [ResponseType(typeof(Archivo))]
-        public IHttpActionResult DeleteArchivo(long id)
+        // DELETE: api/PlayList/5
+        [ResponseType(typeof(PlayList))]
+        public IHttpActionResult DeletePlayList(long id)
         {
             try {
-				return Ok(this.archivoService.Delete(id));
+				return Ok(this.playListService.Delete(id));
 			} catch (NoEncontradoException){
 				return NotFound();
 			}

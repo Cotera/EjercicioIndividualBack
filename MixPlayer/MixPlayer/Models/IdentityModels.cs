@@ -35,5 +35,6 @@ namespace MixPlayer.Models
         }
 
 		public System.Data.Entity.DbSet<MixPlayer.Entities.Archivo> Archivo { get; set; }
+		public System.Data.Entity.DbSet<MixPlayer.Entities.PlayList> PlayList { get; set; }
 	}
 }
