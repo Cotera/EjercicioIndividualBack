@@ -1,4 +1,6 @@
 using Microsoft.Practices.Unity;
+using MixPlayer.Repository;
+using MixPlayer.Services;
 using System.Web.Http;
 using Unity.WebApi;
 
@@ -16,6 +18,9 @@ namespace MixPlayer
             // e.g. container.RegisterType<ITestService, TestService>();
             
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
-        }
-    }
+
+			container.RegisterType<IArchivoRepository, ArchivoRepository>();
+			container.RegisterType<IArchivoService, ArchivoService>();
+		}
+	}
 }

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System;
 
 namespace MixPlayer.Models
 {
@@ -20,7 +21,10 @@ namespace MixPlayer.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
+		[ThreadStatic]
+		public static ApplicationDbContext applicationDbContext;
+
+		public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
@@ -30,6 +34,6 @@ namespace MixPlayer.Models
             return new ApplicationDbContext();
         }
 
-		public System.Data.Entity.DbSet<MixPlayer.Entities.Archivo> Archivoes { get; set; }
+		public System.Data.Entity.DbSet<MixPlayer.Entities.Archivo> Archivo { get; set; }
 	}
 }
