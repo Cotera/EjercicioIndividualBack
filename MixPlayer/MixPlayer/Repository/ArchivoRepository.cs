@@ -34,12 +34,12 @@ namespace MixPlayer.Repository
 
 		public Archivo Delete(long id)
 		{
-			Archivo TipoDoc = this.Read(id);
-			if (TipoDoc == null)
+			Archivo resultado = this.Read(id);
+			if (resultado == null)
 			{
 				throw new NoEncontradoException("No se ha encontrado el tipo de documento a eliminar");
 			}
-			return ApplicationDbContext.applicationDbContext.Archivo.Remove(TipoDoc);
+			return ApplicationDbContext.applicationDbContext.Archivo.Remove(resultado);
 		}
 	}
 }

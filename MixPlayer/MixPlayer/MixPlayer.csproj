@@ -259,10 +259,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\PlayListController.cs" />
     <Compile Include="Controllers\ArchivoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Entities\ValuesController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Entities\Archivo.cs" />
+    <Compile Include="Entities\PlayList.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -274,9 +276,13 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Repository\ArchivoRepository.cs" />
     <Compile Include="Repository\IArchivoRepository.cs" />
+    <Compile Include="Repository\IPlayListRepository.cs" />
+    <Compile Include="Repository\PlayListRepository.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Services\ArchivoService.cs" />
     <Compile Include="Services\IArchivoService.cs" />
+    <Compile Include="Services\IPlayListService.cs" />
+    <Compile Include="Services\PlayListService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
